@@ -1,7 +1,7 @@
 # OpenApi Testing with Schemathesis
 
 
-##Intro
+## Intro
 In this lab we are going to look at testing our application using test cases that are generated using the
 OAS(OpenAPI Spec). To accomplish this task we will be using a tool called Schemathesis.
 
