@@ -16,7 +16,7 @@ project page [here](https://github.com/kiwicom/schemathesis).
 ### Project Base
 We'll be using the Todo project that we created at the beginning of the series to test with. If you need a new copy
 of the project follow these steps:
-1. Clone the project: `git clone git@github.com:NateLove/schemathesis-lab.git`
+1. Clone the project: `git clone https://github.com/NateLove/schemathesis-lab.git`
 2. Generate the sources and make sure that the application runs without issue: `mvn spring-boot:run`
 
 ### Install Schemathesis
