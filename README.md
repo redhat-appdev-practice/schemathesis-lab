@@ -35,7 +35,7 @@ remote schemas.
 
         <sub>Note: there should be failures for both of these runs</sub>
 
-##Fix the tests
+## Fix the tests
 1. In order to fix the failing tests we need to stub out each of the endpoints that are declared in our OAS
 2. Add the following to the TodosApiController:
     ```java
@@ -67,7 +67,7 @@ remote schemas.
     ```
 3. Rerun the tests: `schemathesis run todo.yaml --base-url http://localhost:8080`
 
-##Extra Testing
+## Extra Testing
 1. Schemathesis offers added functionality if you want to test a specific part of your application.
 2. Create python file test.py:
     ```python
