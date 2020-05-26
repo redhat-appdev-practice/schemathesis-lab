@@ -42,30 +42,57 @@ remote schemas.
 
     @Override
     public ResponseEntity<Void> createTodo( Todo todo, Boolean completed) {
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        return new ResponseEntity<>(HttpStatus.valueOf(200);
 
     }
 
     @Override
     public ResponseEntity<Void> deleteTodo(String todoId) {
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        return new ResponseEntity<>(HttpStatus.valueOf(200);
 
     }
 
     @Override
     public ResponseEntity<List<Todo>> getTodos( Boolean completed) {
 
-        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(HttpStatus.valueOf(200);
 
     }
 
     @Override
     public ResponseEntity<Void> updateTodo(String todoId, Todo todo) {
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        return new ResponseEntity<>(HttpStatus.valueOf(200);
 
     }
     ```
 3. Rerun the tests: `schemathesis run todo.yaml --base-url http://localhost:8080`
+4. By default Schemathesis only tests that the response code is less than 500, but there are more options for test cases.  
+   Run `schemthesis run --help` to see more testing options, specifically the --checks option.
+5. Rerun the tests using all available checks: `schemathesis run todo.yaml --checks all --base-url http://localhost:8080`
+6. Update the TodosApiController methods to conform to the OAS:
+   ```java
+   
+    @Override
+    public ResponseEntity<Void> createTodo(@Valid Todo todo, @Valid Boolean completed) {
+        return new ResponseEntity<>(HttpStatus.valueOf(201));
+    }
+
+    @Override
+    public ResponseEntity<Void> deleteTodo(String todoId) {
+        return new ResponseEntity<>(HttpStatus.valueOf(204));
+    }
+
+    @Override
+    public ResponseEntity<List<Todo>> getTodos(@Valid Boolean completed) {
+        return ResponseEntity.status(200).body(new ArrayList<Todo>() );
+    }
+
+    @Override
+    public ResponseEntity<Void> updateTodo(String todoId, Todo todo) {
+        return new ResponseEntity<>(HttpStatus.valueOf(202));
+    }
+    ```
+7. Run the tests one final time: `schemathesis run todo.yaml --checks all --base-url http://localhost:8080`
 
 ## Extra Testing
 1. Schemathesis offers added functionality if you want to test a specific part of your application.
