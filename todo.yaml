@@ -32,6 +32,8 @@ paths:
                 items:
                   $ref: '#/components/schemas/todo'
           description: Successful response - returns an array of `todo` entities.
+        "400":
+          description: Bad Request
       operationId: getTodos
       summary: List All todos
       description: Gets a list of all `todo` entities.
@@ -48,6 +50,8 @@ paths:
       responses:
         "201":
           description: Successful response.
+        "400":
+          description: Bad Request
       operationId: createTodo
       summary: Create a todo
       description: Creates a new instance of a `todo`.
@@ -74,6 +78,8 @@ paths:
           description: Successful response - returns a single `todo`.
         "404":
           description: Todo item not found
+        "400":
+          description: Bad Request
       operationId: getTodo
       summary: Get a todo
       description: Gets the details of a single instance of a `todo`.
@@ -92,6 +98,8 @@ paths:
           description: Successful response.
         "404":
           description: Todo item not found
+        "400":
+          description: Bad Request
       operationId: updateTodo
       summary: Update a todo
       description: Updates an existing `todo`.
@@ -103,6 +111,8 @@ paths:
           description: Successful response.
         "404":
           description: Todo item not found
+        "400":
+          description: Bad Request
       operationId: deleteTodo
       summary: Delete a todo
       description: Deletes an existing `todo`.
@@ -113,82 +123,7 @@ paths:
           type: string
         in: path
         required: true
-  /users:
-    summary: Path used to manage the list of users.
-    description: The REST endpoint/path used to list and create zero or more `user`
-      entities.  This path contains a `GET` and `POST` operation to perform the list
-      and create tasks, respectively.
-    get:
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/user'
-          description: Successful response - returns an array of `user` entities.
-      operationId: getusers
-      summary: List All users
-      description: Gets a list of all `user` entities.
-    post:
-      requestBody:
-        description: A new `user` to be created.
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/user'
-        required: true
-      responses:
-        "201":
-          description: Successful response.
-      operationId: createuser
-      summary: Create a user
-      description: Creates a new instance of a `user`.
-  /users/{userId}:
-    summary: Path used to manage a single user.
-    description: The REST endpoint/path used to get, update, and delete single instances
-      of an `user`.  This path contains `GET`, `PUT`, and `DELETE` operations used
-      to perform the get, update, and delete tasks, respectively.
-    get:
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/user'
-          description: Successful response - returns a single `user`.
-      operationId: getuser
-      summary: Get a user
-      description: Gets the details of a single instance of a `user`.
-    put:
-      requestBody:
-        description: Updated `user` information.
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/user'
-        required: true
-      responses:
-        "202":
-          description: Successful response.
-      operationId: updateuser
-      summary: Update a user
-      description: Updates an existing `user`.
-    delete:
-      responses:
-        "204":
-          description: Successful response.
-      operationId: deleteuser
-      summary: Delete a user
-      description: Deletes an existing `user`.
-    parameters:
-      - name: userId
-        description: A unique identifier for a `user`.
-        schema:
-          type: string
-        in: path
-        required: true
+
 components:
   schemas:
     todo:
@@ -206,26 +141,13 @@ components:
         completed:
           description: Is Completed
           type: boolean
-        owner:
-          $ref: '#/components/schemas/user'
-          description: Owner of the todo item
+
       example:
         name: Todo item
         description: Description of item
         date: 2018-05-06T18:25:43.511Z
         completed: true
-    user:
-      title: Root Type for user
-      description: ""
-      type: object
-      properties:
-        firstName:
-          type: string
-        lastName:
-          type: string
-      example:
-        firstName: Jon
-        lastName: Snow
+
 tags:
   - name: todo
     description: 'Todo '

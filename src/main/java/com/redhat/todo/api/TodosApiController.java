@@ -21,6 +21,8 @@ import java.util.logging.Logger;
 
 import org.springframework.http.ResponseEntity;
 
+import javax.validation.Valid;
+
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-05-19T09:31:42.042-07:00[America/Los_Angeles]")
 
 @Controller
@@ -51,7 +53,5 @@ public class TodosApiController implements TodosApi {
         response.setDate(OffsetDateTime.now().plusDays(1));
         return ResponseEntity.ok(response);
     }
-
-
 
 }

@@ -1,0 +1,7 @@
+/src/main/gen/*
+.hypothesis
+.openapi-generator
+target
+.idea
+myvenv
+__*
