@@ -31,7 +31,7 @@
                         </goals>
                         <configuration>
                             <generatorName>spring</generatorName>
-                            <inputSpec>https://raw.githubusercontenqt.com/NateLove/schemathesis-lab/master/todo.yaml</inputSpec>
+                            <inputSpec>https://raw.githubusercontent.com/NateLove/schemathesis-lab/master/todo.yaml</inputSpec>
                             <library>spring-boot</library>
                             <output>${project.basedir}</output>
                             <configOptions>
