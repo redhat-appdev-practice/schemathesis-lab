@@ -99,20 +99,14 @@ remote schemas.
 2. Create python file test.py:
     ```python
     # test.py
-    import requests
     import schemathesis
-    import timeit
 
     schema = schemathesis.from_path('./todo.yaml')
     schema.base_url = 'http://localhost:8080'
 
     @schema.parametrize()
-    def test_no_server_errors(case):
-        start = timeit.timeit()
-        case.call()
-        end = timeit.timeit()
-
-        assert (end-start) < 1
-
+    def test_time(case):
+        response = case.call()
+        assert response.elapsed.total_seconds() < 1
     ```
  3. This is an example to check that all endpoints execute in under a second
