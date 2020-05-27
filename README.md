@@ -16,7 +16,7 @@ project page [here](https://github.com/kiwicom/schemathesis).
 ### Project Base
 We'll be using the Todo project that we created at the beginning of the series to test with. If you need a new copy
 of the project follow these steps:
-1. Clone the project: `git clone https://github.com/NateLove/schemathesis-lab.git`
+1. Clone the project: `https://github.com/redhat-appdev-practice/schemathesis-lab.git`
 2. Generate the sources and make sure that the application runs without issue: `mvn spring-boot:run`
 
 ### Install Schemathesis
@@ -31,7 +31,7 @@ of the project follow these steps:
 2. In our project we are using an OAS that is in a remote repo, Scemathesis allows you to run tests against both local
 remote schemas.
     - For local: `schemathesis run todo.yaml --base-url http://localhost:8080`
-    - For remote: `schemathesis run https://raw.githubusercontent.com/jland-redhat/rhc_openapi_todo/todo_enhanced/todo.yaml --base-url http://localhost:8080`
+    - For remote: `schemathesis run https://raw.githubusercontent.com/redhat-appdev-practice/schemathesis-lab/master/todo.yaml --base-url http://localhost:8080`
 
         <sub>Note: there should be failures for both of these runs</sub>
 
