@@ -24,6 +24,7 @@ of the project follow these steps:
 `pip install --user virtualenv`
 2. Create a new virtual environment in your project folder: `python -m venv myvenv`
 3. Activate your new virtual environment: `source myvenv/bin/activate`
+   - `source myvenv/Scripts/activate` for Windows
 4. Install Schemathesis: `pip install schemathesis`
 
 ## Run the tests
